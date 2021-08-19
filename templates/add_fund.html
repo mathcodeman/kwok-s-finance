@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<head>
+    <div>
+        <h1>{{ Title }}</h1>
+    </div>
+<br><br>
+
+    <form action="/add_fund" method="POST">
+        <div>
+            <input type="number" name="amount" placeholder="Amount">
+        </div>
+        <br><br>
+        <div>
+            <button class="btn btn-primary" type="submit">Deposit</button>
+        </div>
+    </form>
+
+{% endblock %}

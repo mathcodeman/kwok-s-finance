@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Quote details</h1>
+
+<h1>A share of {{quote_detail.get('name')}}, ({{quote_detail.get('symbol')}})</h1>
+<h1>costs ${{quote_detail.get('price')}} in USD</h1>
+
+
+{% endblock %}
