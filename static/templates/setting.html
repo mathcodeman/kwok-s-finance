@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<head>
+    <div>
+        <h1>{{ Title }}</h1>
+    </div>
+</head>
+<form action="/setting" method="POST">
+    <div>
+        <input class="form-group" type ="password" name = "old_password" placeholder = "Old Password">
+    </div>
+    <div>
+        <input class="form-group" type ="password" name = "password" placeholder = "New Password">
+    </div>
+    <div>
+        <input class="form-group" type ="password" name = "password_check" placeholder = "New Password Again">
+    </div>
+       <button class="btn btn-primary" type="submit">Change Password</button>
+</form>
+
+{% endblock %}

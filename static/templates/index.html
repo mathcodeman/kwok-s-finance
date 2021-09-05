@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+    <div>
+        <h1>{{ Title }}</h1>
+    </div>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th >Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Average holding price</th>
+                <th>P/L%</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in current_position %}
+            <tr>
+                <td>{{ i.symbol }}</td>
+                <td><a href="https://finance.yahoo.com/quote/{{ i.symbol }}?p={{ i.symbol }}&.tsrc=fin-srch">{{ i.name }}</a></td>
+                <td>{{ i.share }}</td>
+                <td>${{ i.price }}</td>
+                <td>${{ "%.2f" % i.total }}</td>
+                <td>${{ "%.2f" % i.holding_price }}</td>
+                <td>{{ "%.2f" % i.PnL_ratio }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tbody>
+            <tr>
+                <td>CASH</td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>${{ "%.2f" % cash }} </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>${{ "%.2f" % total_balance }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
